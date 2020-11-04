@@ -7,6 +7,7 @@ target 'EmployeeApp' do
 
   # Pods for EmployeeApp
 pod 'Alamofire', '~> 5.2'
+pod 'SwiftyJSON', '~> 4.0'
 
   target 'EmployeeAppTests' do
     inherit! :search_paths

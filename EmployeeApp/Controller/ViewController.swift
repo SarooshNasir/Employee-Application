@@ -11,15 +11,15 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     var viewModelEmployee = EmployeeViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModelEmployee.vc = self
         viewModelEmployee.getAllUserDataAF()
         // Do any additional setup after loading the view.
     }
-
-
+    
+    
 }
 extension ViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,7 +31,7 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate{
         cell.lblName.text = viewModelEmployee.arrEmployees[indexPath.row].employee_name
         cell.lblAge.text = viewModelEmployee.arrEmployees[indexPath.row].employee_age
         cell.lblSalary.text = viewModelEmployee.arrEmployees[indexPath.row].employee_salary
-        //cell.ImageView.image = viewModelEmployee.arrEmployees[indexPath.row].profile_image
+        //cell.ImageView.image = UIImage(contentsOfFile: viewModelEmployee.arrEmployees[indexPath.row].profile_image ?? "")
         
         return cell
     }

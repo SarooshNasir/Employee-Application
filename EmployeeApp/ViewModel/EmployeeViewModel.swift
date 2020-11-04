@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 class EmployeeViewModel{
     
     weak var vc : ViewController?
@@ -22,22 +23,31 @@ class EmployeeViewModel{
                     //Parsing
                     let userResponse = try JSONDecoder().decode(EmployeeModel.self, from: data)
                     self.arrEmployees.append(contentsOf: userResponse.data ?? [EmployeeDataModel]())
-                    
-                    //userResponse.data
-                    //self.arrEmployees.append(contentsOf: userResponse)
                     DispatchQueue.main.async {
                         self.vc?.tblView.reloadData()
                     }
                     print(self.arrEmployees)
-                    
+
                 }catch let err{
                     print(err.localizedDescription)
-                    
+
                 }
-                
+
             }
-            
+
         }
+//        AF.request("http://dummy.restapiexample.com/api/v1/employees").responseJSON { (response) in
+//            switch response.result{
+//            case .success:
+//                let data = JSON(response.value!)
+//                let data2 = data["data"].arrayValue[0]
+//                let data3 = JSON(data2["employee_salary"])
+//                print(data3)
+//            case .failure:
+//                print("Error")
+//
+//            }
+//        }
     }
     // MARK: ByURLSession
     func getAllUserData(){
