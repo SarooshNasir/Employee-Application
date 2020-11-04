@@ -39,6 +39,13 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="lr7-r1-WCq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV6-i1-gf9">
+                                <rect key="frame" x="34" y="332" width="155" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Update" image="person.crop.circle.badge.exclam" catalog="system"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="X7o-Az-gXP"/>
@@ -48,11 +55,27 @@
                         <outlet property="addEmployeeBTN" destination="lC5-WH-zBw" id="7Pc-Pg-ws7"/>
                         <outlet property="employeeListBTN" destination="P1y-1J-Ca5" id="TUU-z4-JHi"/>
                         <outlet property="imageview" destination="Uf3-1z-E2V" id="HfT-UB-DRl"/>
+                        <outlet property="searchBTN" destination="lV6-i1-gf9" id="a31-n7-Wbt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5g-pU-zG7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-401.44927536231887" y="290.21739130434787"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ANj-I6-iHr">
+            <objects>
+                <viewController id="5RD-hl-9JR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nOn-nQ-3Sm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="5PU-tW-Zzd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ygK-ZW-8dK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-806" y="1168"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -232,10 +255,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3su-Sk-PCl">
-                                <rect key="frame" x="133" y="522" width="149" height="54"/>
+                                <rect key="frame" x="133" y="522" width="149" height="56"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="ahD-t8-C2d"/>
+                                    <constraint firstAttribute="height" constant="56" id="F0Z-v1-QZK"/>
                                 </constraints>
                                 <state key="normal" title="Add">
                                     <color key="titleColor" red="0.96284105330000003" green="0.96284105330000003" blue="0.96284105330000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -244,37 +267,68 @@
                                     <action selector="AddEmployee:" destination="mWo-Zq-XEQ" eventType="touchUpInside" id="2Hh-JK-qXH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXL-6h-ef7">
+                                <rect key="frame" x="71" y="651" width="274" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="x04-TI-9RB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXX-dE-AMQ">
+                                <rect key="frame" x="134" y="586" width="148" height="56"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="OHe-y1-B2c"/>
+                                </constraints>
+                                <state key="normal" title="Update">
+                                    <color key="titleColor" red="0.96284105330000003" green="0.96284105330000003" blue="0.96284105330000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddEmployee:" destination="mWo-Zq-XEQ" eventType="touchUpInside" id="66X-gQ-n2E"/>
+                                    <action selector="UpdateEmployee:" destination="mWo-Zq-XEQ" eventType="touchUpInside" id="9Sm-ZS-ZFN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96284105329949243" green="0.96284105329949243" blue="0.96284105329949243" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="CPL-A6-d4W" firstAttribute="top" secondItem="Ntg-rQ-bsj" secondAttribute="bottom" constant="38" id="1bD-1X-DyO"/>
                             <constraint firstItem="WAR-kL-PAF" firstAttribute="trailing" secondItem="CPL-A6-d4W" secondAttribute="trailing" constant="78" id="6Ip-vc-BPc"/>
-                            <constraint firstItem="3su-Sk-PCl" firstAttribute="centerX" secondItem="Rsv-og-bQF" secondAttribute="centerX" id="6Jx-42-UeR"/>
                             <constraint firstItem="CPL-A6-d4W" firstAttribute="trailing" secondItem="G6w-u7-Uwf" secondAttribute="trailing" id="7Zb-fI-hLf"/>
                             <constraint firstItem="P6n-dw-e9K" firstAttribute="top" secondItem="CPL-A6-d4W" secondAttribute="bottom" constant="34" id="7yo-LN-tY2"/>
-                            <constraint firstItem="3su-Sk-PCl" firstAttribute="top" secondItem="G6w-u7-Uwf" secondAttribute="bottom" constant="70" id="9EG-A3-Udf"/>
                             <constraint firstItem="CPL-A6-d4W" firstAttribute="leading" secondItem="WAR-kL-PAF" secondAttribute="leading" constant="62" id="BnS-vV-FyF"/>
-                            <constraint firstItem="Ntg-rQ-bsj" firstAttribute="top" secondItem="WAR-kL-PAF" secondAttribute="top" constant="75" id="CEl-iC-Sau"/>
-                            <constraint firstItem="CPL-A6-d4W" firstAttribute="top" secondItem="Ntg-rQ-bsj" secondAttribute="bottom" constant="38" id="Dpf-3v-KPT"/>
+                            <constraint firstItem="XXL-6h-ef7" firstAttribute="centerX" secondItem="OXX-dE-AMQ" secondAttribute="centerX" id="Ca0-hP-zYx"/>
                             <constraint firstItem="hpH-ra-Jab" firstAttribute="top" secondItem="P6n-dw-e9K" secondAttribute="bottom" constant="8" id="Hq1-Pv-D5s"/>
                             <constraint firstItem="CPL-A6-d4W" firstAttribute="leading" secondItem="hpH-ra-Jab" secondAttribute="leading" id="HxK-YX-GbC"/>
-                            <constraint firstItem="Ntg-rQ-bsj" firstAttribute="centerX" secondItem="3su-Sk-PCl" secondAttribute="centerX" id="Kwv-Hy-d5T"/>
-                            <constraint firstItem="3su-Sk-PCl" firstAttribute="leading" secondItem="WAR-kL-PAF" secondAttribute="leading" constant="133" id="Zed-FZ-Msd"/>
+                            <constraint firstItem="XXL-6h-ef7" firstAttribute="centerX" secondItem="3su-Sk-PCl" secondAttribute="centerX" id="MQN-3X-o2Q"/>
+                            <constraint firstItem="Ntg-rQ-bsj" firstAttribute="leading" secondItem="Rsv-og-bQF" secondAttribute="leadingMargin" id="OFq-wr-PpL"/>
+                            <constraint firstItem="OXX-dE-AMQ" firstAttribute="leading" secondItem="WAR-kL-PAF" secondAttribute="leading" constant="134" id="V4Z-pE-fLV"/>
+                            <constraint firstItem="XXL-6h-ef7" firstAttribute="leading" secondItem="WAR-kL-PAF" secondAttribute="leading" constant="71" id="cYU-Kj-yxq"/>
+                            <constraint firstItem="Ntg-rQ-bsj" firstAttribute="centerX" secondItem="3su-Sk-PCl" secondAttribute="centerX" id="gfS-Jk-hc0"/>
                             <constraint firstItem="CPL-A6-d4W" firstAttribute="leading" secondItem="P6n-dw-e9K" secondAttribute="leading" id="h34-wq-SsJ"/>
-                            <constraint firstItem="Ntg-rQ-bsj" firstAttribute="leading" secondItem="Rsv-og-bQF" secondAttribute="leadingMargin" id="iUM-KM-vZV"/>
                             <constraint firstItem="G6w-u7-Uwf" firstAttribute="top" secondItem="hpH-ra-Jab" secondAttribute="bottom" constant="8" id="jin-m0-TeT"/>
                             <constraint firstItem="CPL-A6-d4W" firstAttribute="top" secondItem="Rsv-og-bQF" secondAttribute="top" constant="258" id="m08-dU-8ge"/>
+                            <constraint firstItem="3su-Sk-PCl" firstAttribute="leading" secondItem="WAR-kL-PAF" secondAttribute="leading" constant="133" id="mIn-4H-BGp"/>
+                            <constraint firstItem="3su-Sk-PCl" firstAttribute="centerX" secondItem="Rsv-og-bQF" secondAttribute="centerX" id="q5x-9G-xQP"/>
+                            <constraint firstItem="OXX-dE-AMQ" firstAttribute="top" secondItem="3su-Sk-PCl" secondAttribute="bottom" constant="8" id="sol-ag-dN8"/>
                             <constraint firstItem="CPL-A6-d4W" firstAttribute="trailing" secondItem="hpH-ra-Jab" secondAttribute="trailing" id="uFv-Yr-Wqk"/>
                             <constraint firstItem="CPL-A6-d4W" firstAttribute="trailing" secondItem="P6n-dw-e9K" secondAttribute="trailing" id="vf1-bx-JZz"/>
+                            <constraint firstItem="3su-Sk-PCl" firstAttribute="top" secondItem="G6w-u7-Uwf" secondAttribute="bottom" constant="70" id="x9f-i6-NV0"/>
                             <constraint firstItem="CPL-A6-d4W" firstAttribute="leading" secondItem="G6w-u7-Uwf" secondAttribute="leading" id="y0Q-gU-nes"/>
+                            <constraint firstItem="XXL-6h-ef7" firstAttribute="top" secondItem="OXX-dE-AMQ" secondAttribute="bottom" constant="9" id="zx0-e2-rbQ"/>
+                            <constraint firstItem="Ntg-rQ-bsj" firstAttribute="top" secondItem="WAR-kL-PAF" secondAttribute="top" constant="75" id="zzW-hT-NKZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WAR-kL-PAF"/>
                     </view>
                     <navigationItem key="navigationItem" id="TZb-0d-DfT"/>
                     <connections>
                         <outlet property="btn_Add" destination="3su-Sk-PCl" id="smJ-48-4gZ"/>
+                        <outlet property="btn_Update" destination="OXX-dE-AMQ" id="72J-FS-Ffo"/>
                         <outlet property="empAge" destination="hpH-ra-Jab" id="E26-M0-qdI"/>
                         <outlet property="empName" destination="P6n-dw-e9K" id="68r-Qr-O2r"/>
                         <outlet property="empSalary" destination="G6w-u7-Uwf" id="hoK-hE-9Yg"/>
+                        <outlet property="messageLabel" destination="XXL-6h-ef7" id="nbC-aV-Fb0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qac-io-Iec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -309,6 +363,7 @@
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="manage2" width="1200" height="600"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
+        <image name="person.crop.circle.badge.exclam" catalog="system" width="128" height="101"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
     </resources>
 </document>

@@ -18,86 +18,86 @@ class AddEmployeeViewController: UIViewController {
     @IBOutlet weak var empAge: UITextField!
     @IBOutlet weak var empSalary: UITextField!
     @IBOutlet weak var btn_Add: UIButton!
+    @IBOutlet weak var btn_Update: UIButton!
+    @IBOutlet weak var messageLabel: UILabel!
     
     // MARK: Variables
     var Name: String?
     var Age: String?
     var Salary: String?
-    var arrResponse = [EmployeeDataModel]()
+    var ID: Int?
+    var arrResponse = [data]()
+    //  var arrResponse = [EmployeeDataModel]()
+    var postReposne: PostResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         customButtonDisplay()
+        btn_Update.isHidden = true
         
         // Do any additional setup after loading the view.
     }
     
     @IBAction func AddEmployee(_ sender: UIButton) {
         
-        Name = empName.text ?? ""
-        Age = empAge.text ?? ""
-        Salary = empSalary.text ?? ""
+        let params : Parameters  = [
+            "name" : empName.text ?? "",
+            "age" : empAge.text ?? "",
+            "salary" : empSalary.text ?? ""
+        ]
+        
+        AF.request(URL(string: "http://dummy.restapiexample.com/api/v1/create")!, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil).response { response in
+            if let data = response.data{
+                do{
+                    let str = String(decoding: data, as: UTF8.self)
+                    print(str)
+                    //Parsing
+                    let userResponse = try JSONDecoder().decode(PostResponse.self, from: data)
+                    self.Name = userResponse.data?.name
+                    self.Age = userResponse.data?.age
+                    self.Salary = userResponse.data?.salary
+                    self.ID = userResponse.data?.id
+                    DispatchQueue.main.async {
+                        self.messageLabel.text = userResponse.message ?? ""
+                        self.btn_Update.isHidden = false
+                        self.btn_Add.isHidden = true
+                    }
+                    
+                }catch let err{
+                    print(err.localizedDescription)
+                    
+                }
+                
+            }
+        }
+    }
+    
+    @IBAction func UpdateEmployee(_ sender: UIButton) {
         
         let params : Parameters  = [
             "name" : empName.text ?? "",
             "age" : empAge.text ?? "",
             "salary" : empSalary.text ?? ""
         ]
-    
-        
-       // let add = Adding(MName: Name!, MAge: Age!, MSalary: Salary!)
-        
-        AF.request(URL(string: "http://dummy.restapiexample.com/api/v1/create")!, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil).response { response in
-                    if let data = response.data{
-                        do{
-                            let str = String(decoding: data, as: UTF8.self)
-                            print(str)
-                            //Parsing
-                            let userResponse = try JSONDecoder().decode(PostResponse.self, from: data)
-                            print(userResponse)
-
-                        }catch let err{
-                            print(err.localizedDescription)
-
-                        }
-
-                    }
-            //debugPrint(response)
-                    // print(response)
+        AF.request(URL(string: "http://dummy.restapiexample.com/api/v1/delete/\(ID ?? 0)")!, method: .put, parameters: params, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil).response { response in
+            if let data = response.data{
+                do{
+                    let str = String(decoding: data, as: UTF8.self)
+                    print("This is \(self.ID ?? 0)")
+                    print(str)
                     
+                }
+            }
         }
         
-//        AF.request("http://dummy.restapiexample.com/api/v1/create",
-//                   method: .post,
-//                   parameters: params,
-//                   encoder: JSONEncoding).response { response in
-//                    if let data = response.data{
-//                        do{
-//                            //Parsing
-//                            let userResponse = try JSONDecoder().decode(PostResponse.self, from: data)
-//                            print(userResponse.message ?? "")
-//
-//                        }catch let err{
-//                            print(err.localizedDescription)
-//
-//                        }
-//
-//                    }
-//                    //debugPrint(response)
-//                    // print(response)
-//
-//        }
     }
-    
-    
-    
-    
-    
     
     
     func customButtonDisplay(){
         btn_Add.layer.cornerRadius = btn_Add.frame.size.height/2
         btn_Add.clipsToBounds = true
+        btn_Update.layer.cornerRadius = btn_Update.frame.size.height/2
+        btn_Update.clipsToBounds = true
     }
     
     

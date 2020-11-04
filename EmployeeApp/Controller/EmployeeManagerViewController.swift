@@ -12,6 +12,7 @@ class EmployeeManagerViewController: UIViewController {
     @IBOutlet weak var addEmployeeBTN: UIButton!
     @IBOutlet weak var employeeListBTN: UIButton!
     @IBOutlet weak var imageview: UIImageView!
+    @IBOutlet weak var searchBTN: UIButton!
     
     override func viewDidLoad() {
            ManagerDisplayCustomization()
@@ -37,5 +38,7 @@ class EmployeeManagerViewController: UIViewController {
         
         employeeListBTN.layer.cornerRadius = employeeListBTN.frame.size.height/3
                      employeeListBTN.clipsToBounds = true
+        searchBTN.layer.cornerRadius = searchBTN.frame.size.height/3
+        searchBTN.clipsToBounds = true
     }
 }

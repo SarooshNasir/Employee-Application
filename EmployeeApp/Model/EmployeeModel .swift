@@ -54,7 +54,7 @@ struct Adding : Encodable
 
 struct PostResponse : Codable {
     let status : String?
-    let data : Body?
+    let data : data?
     let message : String?
 
     enum CodingKeys: String, CodingKey {
@@ -65,18 +65,18 @@ struct PostResponse : Codable {
     }
 
 }
-struct Body : Codable {
-    let id : String?
-    let Name : String?
-    let Salary : String?
-    let Age : String?
+struct data : Codable {
+    let id : Int?
+    let name : String?
+    let salary : String?
+    let age : String?
 
     enum CodingKeys: String, CodingKey {
 
         case id = "id"
-        case Name = "Name"
-        case Salary = "Salary"
-        case Age = "Age"
+        case name = "name"
+        case salary = "salary"
+        case age = "age"
     }
 
 }

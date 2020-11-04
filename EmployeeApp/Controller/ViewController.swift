@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController {
     @IBOutlet weak var tblView: UITableView!
@@ -35,6 +37,42 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate{
         
         return cell
     }
+    
+    // MARK: Delete Functionality
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let contextItem = UIContextualAction(style: .destructive, title: "delete") {  (contextualAction, view, boolValue) in
+            let urlDelete = "http://dummy.restapiexample.com/api/v1/delete/\(self.viewModelEmployee.arrEmployees[indexPath.row].id ?? "")"
+            AF.request(urlDelete, method: .delete).response {response in
+                if let data = response.data{
+                    
+                    let str = String(decoding: data, as: UTF8.self)
+                    print(str)
+                    print(" This is \(response)")
+                    
+                }
+            }
+            print("Delete tapped")
+        }
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+        
+        return swipeActions
+    }
+    //    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    //        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
+    //
+    //            let urlDelete = "http://dummy.restapiexample.com/api/v1/delete/\(self.viewModelEmployee.arrEmployees[indexPath.row].id ?? "")"
+    //            AF.request(urlDelete, method: .delete).response {response in
+    //            if let data = response.data{
+    //
+    //                    let str = String(decoding: data, as: UTF8.self)
+    //                    print(str)
+    //                    print(" This is \(response)")
+    //            }
+    //            }
+    //            print("Delete tapped")
+    //        })
+    //        return [deleteAction]
+    //    }
     
     
     
