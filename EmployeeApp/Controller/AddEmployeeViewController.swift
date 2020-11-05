@@ -13,7 +13,6 @@ import SwiftyJSON
 class AddEmployeeViewController: UIViewController {
     
     // MARK: Outlets
-    
     @IBOutlet weak var empName: UITextField!
     @IBOutlet weak var empAge: UITextField!
     @IBOutlet weak var empSalary: UITextField!
@@ -27,17 +26,14 @@ class AddEmployeeViewController: UIViewController {
     var Salary: String?
     var ID: Int?
     var arrResponse = [data]()
-    //  var arrResponse = [EmployeeDataModel]()
     var postReposne: PostResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         customButtonDisplay()
         btn_Update.isHidden = true
-        
         // Do any additional setup after loading the view.
     }
-    
     @IBAction func AddEmployee(_ sender: UIButton) {
         
         let params : Parameters  = [
@@ -62,10 +58,8 @@ class AddEmployeeViewController: UIViewController {
                         self.btn_Update.isHidden = false
                         self.btn_Add.isHidden = true
                     }
-                    
                 }catch let err{
                     print(err.localizedDescription)
-                    
                 }
                 
             }
@@ -73,19 +67,17 @@ class AddEmployeeViewController: UIViewController {
     }
     
     @IBAction func UpdateEmployee(_ sender: UIButton) {
-        
         let params : Parameters  = [
             "name" : empName.text ?? "",
             "age" : empAge.text ?? "",
             "salary" : empSalary.text ?? ""
         ]
-        AF.request(URL(string: "http://dummy.restapiexample.com/api/v1/delete/\(ID ?? 0)")!, method: .put, parameters: params, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil).response { response in
+        AF.request(URL(string: "http://dummy.restapiexample.com/api/v1/update/\(ID ?? 0)")!, method: .put, parameters: params, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil).response { response in
             if let data = response.data{
                 do{
                     let str = String(decoding: data, as: UTF8.self)
                     print("This is \(self.ID ?? 0)")
                     print(str)
-                    
                 }
             }
         }

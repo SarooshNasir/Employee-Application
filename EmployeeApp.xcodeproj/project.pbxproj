@@ -17,6 +17,8 @@
 		6A672CA0254FFEE5000E4637 /* EmployeeModel .swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A672C9F254FFEE5000E4637 /* EmployeeModel .swift */; };
 		6A672CA22550116D000E4637 /* EmployeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A672CA12550116D000E4637 /* EmployeeViewModel.swift */; };
 		6A686CC0255037CF006A7E0B /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A686CBF255037CF006A7E0B /* EmployeeCell.swift */; };
+		6A6D9B982553E60100BA80A8 /* AddButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D9B972553E60100BA80A8 /* AddButtonViewController.swift */; };
+		6A6D9B9A2554104000BA80A8 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D9B992554104000BA80A8 /* UpdateViewController.swift */; };
 		6AA5C1BC25514ED500F36F77 /* AddEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA5C1BB25514ED500F36F77 /* AddEmployeeViewController.swift */; };
 		6AA5C1BE25518A1500F36F77 /* EmployeeManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA5C1BD25518A1500F36F77 /* EmployeeManagerViewController.swift */; };
 		8902A56DE143BC0534B29612 /* Pods_EmployeeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE28A9331533208FAF507074 /* Pods_EmployeeApp.framework */; };
@@ -48,6 +50,8 @@
 		6A672C9F254FFEE5000E4637 /* EmployeeModel .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EmployeeModel .swift"; sourceTree = "<group>"; };
 		6A672CA12550116D000E4637 /* EmployeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewModel.swift; sourceTree = "<group>"; };
 		6A686CBF255037CF006A7E0B /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
+		6A6D9B972553E60100BA80A8 /* AddButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonViewController.swift; sourceTree = "<group>"; };
+		6A6D9B992554104000BA80A8 /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
 		6AA5C1BB25514ED500F36F77 /* AddEmployeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmployeeViewController.swift; sourceTree = "<group>"; };
 		6AA5C1BD25518A1500F36F77 /* EmployeeManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeManagerViewController.swift; sourceTree = "<group>"; };
 		6C587155016AE2032CAE59D0 /* Pods-EmployeeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmployeeAppTests.release.xcconfig"; path = "Target Support Files/Pods-EmployeeAppTests/Pods-EmployeeAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				6A672C79254FF32E000E4637 /* ViewController.swift */,
 				6AA5C1BB25514ED500F36F77 /* AddEmployeeViewController.swift */,
 				6AA5C1BD25518A1500F36F77 /* EmployeeManagerViewController.swift */,
+				6A6D9B972553E60100BA80A8 /* AddButtonViewController.swift */,
+				6A6D9B992554104000BA80A8 /* UpdateViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AA5C1BE25518A1500F36F77 /* EmployeeManagerViewController.swift in Sources */,
+				6A6D9B982553E60100BA80A8 /* AddButtonViewController.swift in Sources */,
 				6A672C7A254FF32E000E4637 /* ViewController.swift in Sources */,
 				6AA5C1BC25514ED500F36F77 /* AddEmployeeViewController.swift in Sources */,
 				6A672CA0254FFEE5000E4637 /* EmployeeModel .swift in Sources */,
@@ -354,6 +361,7 @@
 				6A686CC0255037CF006A7E0B /* EmployeeCell.swift in Sources */,
 				6A672CA22550116D000E4637 /* EmployeeViewModel.swift in Sources */,
 				6A672C78254FF32E000E4637 /* SceneDelegate.swift in Sources */,
+				6A6D9B9A2554104000BA80A8 /* UpdateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

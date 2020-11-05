@@ -39,13 +39,6 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="lr7-r1-WCq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV6-i1-gf9">
-                                <rect key="frame" x="34" y="332" width="155" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Update" image="person.crop.circle.badge.exclam" catalog="system"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="X7o-Az-gXP"/>
@@ -55,29 +48,13 @@
                         <outlet property="addEmployeeBTN" destination="lC5-WH-zBw" id="7Pc-Pg-ws7"/>
                         <outlet property="employeeListBTN" destination="P1y-1J-Ca5" id="TUU-z4-JHi"/>
                         <outlet property="imageview" destination="Uf3-1z-E2V" id="HfT-UB-DRl"/>
-                        <outlet property="searchBTN" destination="lV6-i1-gf9" id="a31-n7-Wbt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5g-pU-zG7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-401.44927536231887" y="290.21739130434787"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="ANj-I6-iHr">
-            <objects>
-                <viewController id="5RD-hl-9JR" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nOn-nQ-3Sm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="5PU-tW-Zzd"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ygK-ZW-8dK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-806" y="1168"/>
-        </scene>
-        <!--View Controller-->
+        <!--Employee List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EmployeeApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -130,7 +107,7 @@
                                                     <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pu-Ud-ouN">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pu-Ud-ouN">
                                                     <rect key="frame" x="248" y="13.666666666666666" width="131" height="27.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -210,7 +187,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="99J-Mw-Y68"/>
+                    <navigationItem key="navigationItem" title="Employee List" id="99J-Mw-Y68">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="c3o-L1-RGU">
+                            <connections>
+                                <action selector="addButton:" destination="BYZ-38-t0r" id="eoH-rp-WpE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tblView" destination="hkW-wN-mmO" id="uqh-wH-oXg"/>
                     </connections>
@@ -219,7 +202,102 @@
             </objects>
             <point key="canvasLocation" x="1044.9275362318842" y="103.53260869565219"/>
         </scene>
-        <!--Add Employee View Controller-->
+        <!--Add Button View Controller-->
+        <scene sceneID="Au6-5t-R64">
+            <objects>
+                <viewController storyboardIdentifier="AddButtonViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MeR-Oz-waJ" customClass="AddButtonViewController" customModule="EmployeeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vvd-uu-P3l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="735-uI-pVg">
+                                <rect key="frame" x="20" y="139" width="374" height="101"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nOk-aV-FLG">
+                                <rect key="frame" x="62" y="354" width="274" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="2GO-bt-LnT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qz8-9i-mcn">
+                                <rect key="frame" x="62" y="396" width="274" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="a5b-5M-uda"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Salary" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jvc-kL-CAp">
+                                <rect key="frame" x="62" y="438" width="274" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="oEU-yZ-C8s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Employee" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmh-PL-t0G">
+                                <rect key="frame" x="62" y="278" width="274" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="bhJ-Qb-JN8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AlNile" family="Al Nile" pointSize="25"/>
+                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="298-vj-HIv">
+                                <rect key="frame" x="133" y="542" width="148" height="56"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="osg-Ne-sEB"/>
+                                </constraints>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="0.96284105330000003" green="0.96284105330000003" blue="0.96284105330000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddEmployee:" destination="mWo-Zq-XEQ" eventType="touchUpInside" id="JvK-xS-HwS"/>
+                                    <action selector="add:" destination="MeR-Oz-waJ" eventType="touchUpInside" id="ZxQ-GJ-mDn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96284105330000003" green="0.96284105330000003" blue="0.96284105330000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nOk-aV-FLG" firstAttribute="top" secondItem="hmh-PL-t0G" secondAttribute="bottom" constant="34" id="0YF-wA-o7q"/>
+                            <constraint firstItem="hmh-PL-t0G" firstAttribute="leading" secondItem="Wka-Fw-qCj" secondAttribute="leading" constant="62" id="2FR-nt-bpD"/>
+                            <constraint firstItem="hmh-PL-t0G" firstAttribute="leading" secondItem="nOk-aV-FLG" secondAttribute="leading" id="5ta-gx-YOW"/>
+                            <constraint firstItem="735-uI-pVg" firstAttribute="centerX" secondItem="298-vj-HIv" secondAttribute="centerX" id="AzG-wq-WpD"/>
+                            <constraint firstItem="735-uI-pVg" firstAttribute="trailing" secondItem="Vvd-uu-P3l" secondAttribute="trailingMargin" id="DVy-Y7-P46"/>
+                            <constraint firstItem="735-uI-pVg" firstAttribute="leading" secondItem="Vvd-uu-P3l" secondAttribute="leadingMargin" id="Ewy-qX-uvy"/>
+                            <constraint firstItem="298-vj-HIv" firstAttribute="top" secondItem="Jvc-kL-CAp" secondAttribute="bottom" constant="70" id="HZ8-6v-PXW"/>
+                            <constraint firstItem="hmh-PL-t0G" firstAttribute="leading" secondItem="qz8-9i-mcn" secondAttribute="leading" id="VQE-IM-4M6"/>
+                            <constraint firstItem="hmh-PL-t0G" firstAttribute="trailing" secondItem="qz8-9i-mcn" secondAttribute="trailing" id="WPK-aN-SjA"/>
+                            <constraint firstItem="qz8-9i-mcn" firstAttribute="top" secondItem="nOk-aV-FLG" secondAttribute="bottom" constant="8" id="WV5-Ig-VhJ"/>
+                            <constraint firstItem="Jvc-kL-CAp" firstAttribute="top" secondItem="qz8-9i-mcn" secondAttribute="bottom" constant="8" id="Y2c-Sq-fc4"/>
+                            <constraint firstItem="735-uI-pVg" firstAttribute="top" secondItem="Wka-Fw-qCj" secondAttribute="top" constant="139" id="aPY-RW-WXq"/>
+                            <constraint firstItem="hmh-PL-t0G" firstAttribute="trailing" secondItem="nOk-aV-FLG" secondAttribute="trailing" id="fE2-SX-22a"/>
+                            <constraint firstItem="298-vj-HIv" firstAttribute="leading" secondItem="Wka-Fw-qCj" secondAttribute="leading" constant="133" id="pgz-CF-TZc"/>
+                            <constraint firstItem="Wka-Fw-qCj" firstAttribute="trailing" secondItem="hmh-PL-t0G" secondAttribute="trailing" constant="78" id="rpZ-Ag-z2D"/>
+                            <constraint firstItem="hmh-PL-t0G" firstAttribute="leading" secondItem="Jvc-kL-CAp" secondAttribute="leading" id="scv-jf-l78"/>
+                            <constraint firstItem="hmh-PL-t0G" firstAttribute="trailing" secondItem="Jvc-kL-CAp" secondAttribute="trailing" id="wIl-yx-brH"/>
+                            <constraint firstItem="Wka-Fw-qCj" firstAttribute="bottom" secondItem="298-vj-HIv" secondAttribute="bottom" constant="138" id="x7c-Bc-icl"/>
+                            <constraint firstItem="hmh-PL-t0G" firstAttribute="top" secondItem="735-uI-pVg" secondAttribute="bottom" constant="38" id="zD6-1e-fry"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Wka-Fw-qCj"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WCO-MR-lDZ"/>
+                    <connections>
+                        <outlet property="addbtn" destination="298-vj-HIv" id="wr5-U7-gVc"/>
+                        <outlet property="ageAdd" destination="qz8-9i-mcn" id="7bv-Rq-qpu"/>
+                        <outlet property="nameAdd" destination="nOk-aV-FLG" id="U4w-5p-Vb4"/>
+                        <outlet property="salaryAdd" destination="Jvc-kL-CAp" id="Hyk-Bf-N3F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M4t-Nt-B52" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1799" y="103"/>
+        </scene>
+        <!--Add Employee-->
         <scene sceneID="93x-r6-QtC">
             <objects>
                 <viewController id="mWo-Zq-XEQ" customClass="AddEmployeeViewController" customModule="EmployeeApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -321,7 +399,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WAR-kL-PAF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TZb-0d-DfT"/>
+                    <navigationItem key="navigationItem" title="Add Employee" id="TZb-0d-DfT"/>
                     <connections>
                         <outlet property="btn_Add" destination="3su-Sk-PCl" id="smJ-48-4gZ"/>
                         <outlet property="btn_Update" destination="OXX-dE-AMQ" id="72J-FS-Ffo"/>
@@ -334,6 +412,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qac-io-Iec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1044.9275362318842" y="801.35869565217399"/>
+        </scene>
+        <!--Update View Controller-->
+        <scene sceneID="Gtl-MQ-cvM">
+            <objects>
+                <viewController storyboardIdentifier="UpdateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T79-mD-tll" customClass="UpdateViewController" customModule="EmployeeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zrv-gd-ogA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YXe-OS-v8K">
+                                <rect key="frame" x="70" y="210" width="274" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAi-iB-PqN">
+                                <rect key="frame" x="70" y="252" width="274" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Salary" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X5B-Oo-L2p">
+                                <rect key="frame" x="70" y="294" width="274" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIU-nM-XOn">
+                                <rect key="frame" x="133" y="423" width="148" height="56"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="zYB-Hz-80C"/>
+                                </constraints>
+                                <state key="normal" title="Update">
+                                    <color key="titleColor" red="0.96284105330000003" green="0.96284105330000003" blue="0.96284105330000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddEmployee:" destination="mWo-Zq-XEQ" eventType="touchUpInside" id="0y9-SX-UX2"/>
+                                    <action selector="UpdateEmployee:" destination="mWo-Zq-XEQ" eventType="touchUpInside" id="Fdf-m6-pJn"/>
+                                    <action selector="UpdatePress:" destination="T79-mD-tll" eventType="touchUpInside" id="R09-ac-TX2"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Vqu-bE-wQs">
+                                <rect key="frame" x="87" y="49.000000000000007" width="240" height="124.66666666666667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="X5B-Oo-L2p" firstAttribute="centerX" secondItem="vIU-nM-XOn" secondAttribute="centerX" id="3dD-xy-rQ7"/>
+                            <constraint firstItem="YXe-OS-v8K" firstAttribute="centerX" secondItem="Zrv-gd-ogA" secondAttribute="centerX" id="66j-Nl-m19"/>
+                            <constraint firstItem="YXe-OS-v8K" firstAttribute="top" secondItem="eV2-MD-Ld1" secondAttribute="top" constant="210" id="CUO-NC-AJF"/>
+                            <constraint firstItem="VAi-iB-PqN" firstAttribute="trailing" secondItem="X5B-Oo-L2p" secondAttribute="trailing" id="DmE-Zj-tVk"/>
+                            <constraint firstItem="Vqu-bE-wQs" firstAttribute="centerX" secondItem="YXe-OS-v8K" secondAttribute="centerX" id="Mvi-2s-RD1"/>
+                            <constraint firstItem="YXe-OS-v8K" firstAttribute="trailing" secondItem="VAi-iB-PqN" secondAttribute="trailing" id="NE0-cH-Rtr"/>
+                            <constraint firstItem="VAi-iB-PqN" firstAttribute="top" secondItem="YXe-OS-v8K" secondAttribute="bottom" constant="8" id="Pc1-UC-ZKm"/>
+                            <constraint firstItem="Vqu-bE-wQs" firstAttribute="top" secondItem="eV2-MD-Ld1" secondAttribute="top" constant="47" id="cNq-Pl-BO5"/>
+                            <constraint firstItem="YXe-OS-v8K" firstAttribute="leading" secondItem="eV2-MD-Ld1" secondAttribute="leading" constant="70" id="fkY-15-aXS"/>
+                            <constraint firstItem="VAi-iB-PqN" firstAttribute="leading" secondItem="X5B-Oo-L2p" secondAttribute="leading" id="hPE-Af-fjz"/>
+                            <constraint firstItem="X5B-Oo-L2p" firstAttribute="top" secondItem="VAi-iB-PqN" secondAttribute="bottom" constant="8" id="j0A-ie-kqJ"/>
+                            <constraint firstItem="vIU-nM-XOn" firstAttribute="top" secondItem="X5B-Oo-L2p" secondAttribute="bottom" constant="95" id="kbx-ff-mKQ"/>
+                            <constraint firstItem="vIU-nM-XOn" firstAttribute="leading" secondItem="eV2-MD-Ld1" secondAttribute="leading" constant="133" id="p8d-a7-Xd3"/>
+                            <constraint firstItem="YXe-OS-v8K" firstAttribute="leading" secondItem="VAi-iB-PqN" secondAttribute="leading" id="sTh-kr-RAm"/>
+                            <constraint firstItem="Vqu-bE-wQs" firstAttribute="leading" secondItem="eV2-MD-Ld1" secondAttribute="leading" constant="87" id="t1i-Ql-7SH"/>
+                            <constraint firstItem="YXe-OS-v8K" firstAttribute="top" secondItem="Vqu-bE-wQs" secondAttribute="bottom" constant="35" id="zUb-Kt-pnt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eV2-MD-Ld1"/>
+                    </view>
+                    <connections>
+                        <outlet property="updateAge" destination="VAi-iB-PqN" id="gDF-KA-Azc"/>
+                        <outlet property="updateButton" destination="vIU-nM-XOn" id="sSn-X3-KvZ"/>
+                        <outlet property="updateName" destination="YXe-OS-v8K" id="spo-5B-gTH"/>
+                        <outlet property="updateSalary" destination="X5B-Oo-L2p" id="DkV-id-ZUh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nrc-Of-hqX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1799" y="801"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nFK-Hw-Rz3">
@@ -363,7 +515,6 @@
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="manage2" width="1200" height="600"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
-        <image name="person.crop.circle.badge.exclam" catalog="system" width="128" height="101"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
     </resources>
 </document>

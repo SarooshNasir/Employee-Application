@@ -14,6 +14,7 @@ class EmployeeViewModel{
     weak var vc : ViewController?
     var arrEmployees = [EmployeeDataModel]()
     var employeeModel: EmployeeModel?
+    
     // MARK: BYAlarmofire
     func getAllUserDataAF(){
         AF.request("http://dummy.restapiexample.com/api/v1/employees").response {
@@ -58,17 +59,12 @@ class EmployeeViewModel{
                         //Parsing
                         let userResponse = try JSONDecoder().decode(EmployeeModel.self, from: data)
                         self.arrEmployees.append(contentsOf: userResponse.data ?? [EmployeeDataModel]())
-                        
-                        //userResponse.data
-                        //self.arrEmployees.append(contentsOf: userResponse)
                         DispatchQueue.main.async {
                             self.vc?.tblView.reloadData()
                         }
-                        print(self.arrEmployees)
-                        
+                        //print(self.arrEmployees)
                     }catch let err{
                         print(err.localizedDescription)
-                        
                     }
                     
                 }
