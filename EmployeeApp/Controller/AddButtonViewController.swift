@@ -12,7 +12,7 @@ import SwiftyJSON
 protocol DataPass {
     func dataPassing(response : PostResponse)
 }
-class AddButtonViewController: UIViewController {
+class AddButtonViewController: UIViewController ,UITextFieldDelegate {
     
     @IBOutlet weak var nameAdd: UITextField!
     @IBOutlet weak var ageAdd: UITextField!
@@ -28,10 +28,26 @@ class AddButtonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customButtonDisplay()
-        
-        // Do any additional setup after loading the view.
+        self.nameAdd.delegate = self
+        self.ageAdd.delegate = self
+        self.salaryAdd.delegate = self
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameAdd.resignFirstResponder()
+        ageAdd.resignFirstResponder()
+        salaryAdd.resignFirstResponder()
+        return true
     }
     @IBAction func add(_ sender: Any) {
+        if(nameAdd.text?.isEmpty)!{
+            let alert = UIAlertController(title: "", message: "Fill the Fields", preferredStyle: UIAlertController.Style.alert)
+                                   // add an action (button)
+                                   alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                                   // show the alert
+                                   self.present(alert, animated: true, completion: nil)
+        }
+        else{
+            
         
         let params : Parameters  = [
             "name" : nameAdd.text ?? "",
@@ -50,40 +66,39 @@ class AddButtonViewController: UIViewController {
                     if userResponse.status == "success"{
                         self.navigationController?.popViewController(animated: true)
                     }
-//                    self.Name = userResponse.data?.name
-//                    self.Age = userResponse.data?.age
-//                    self.Salary = userResponse.data?.salary
-//                    self.ID = userResponse.data?.id
-//                    self.Strid = "\(userResponse.data?.id ?? 0)"
-//                    //self.viewModelEmployee.arrEmployees.app
-//                    self.passData.append(datapopulate(Name: self.Name, Age: self.Age, Salary: self.Salary, ID: self.ID))
-                    
-                    DispatchQueue.main.async {
-                        
+                    else{
+                        let alert = UIAlertController(title: "", message: "Failed to Add", preferredStyle: UIAlertController.Style.alert)
+                        // add an action (button)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                        // show the alert
+                        self.present(alert, animated: true, completion: nil)
                     }
+                    //                    self.Name = userResponse.data?.name
+                    //                    self.Age = userResponse.data?.age
+                    //                    self.Salary = userResponse.data?.salary
+                    //                    self.ID = userResponse.data?.id
+                    //                    self.Strid = "\(userResponse.data?.id ?? 0)"
+                    //                    //self.viewModelEmployee.arrEmployees.app
+                    //                    self.passData.append(datapopulate(Name: self.Name, Age: self.Age, Salary: self.Salary, ID: self.ID))
+                    
+                    
                     
                 }catch let err{
+                    let alert = UIAlertController(title: "", message: "Failed to Add", preferredStyle: UIAlertController.Style.alert)
+                    // add an action (button)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    // show the alert
+                    self.present(alert, animated: true, completion: nil)
                     print(err.localizedDescription)
+                    DispatchQueue.main.async {                    }
                     
                 }
                 
             }
         }
-        
+        }
         
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
     func customButtonDisplay(){
         addbtn.layer.cornerRadius = addbtn.frame.size.height/2
         addbtn.clipsToBounds = true

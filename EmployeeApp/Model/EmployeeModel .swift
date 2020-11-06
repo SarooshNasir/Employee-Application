@@ -33,16 +33,6 @@ struct EmployeeDataModel : Codable {
         case employee_age = "employee_age"
         case profile_image = "profile_image"
     }
-
-//    init(from decoder: Decoder) throws {
-//        let values = try decoder.container(keyedBy: CodingKeys.self)
-//        id = try values.decodeIfPresent(String.self, forKey: .id)
-//        employee_name = try values.decodeIfPresent(String.self, forKey: .employee_name)
-//        employee_salary = try values.decodeIfPresent(String.self, forKey: .employee_salary)
-//        employee_age = try values.decodeIfPresent(String.self, forKey: .employee_age)
-//        profile_image = try values.decodeIfPresent(String.self, forKey: .profile_image)
-//    }
-
 }
 
 struct Adding : Encodable
@@ -55,7 +45,7 @@ struct Adding : Encodable
 
 struct PostResponse : Codable {
     let status : String?
-    let data : data?
+    let data : Data?
     let message : String?
 
     enum CodingKeys: String, CodingKey {
@@ -67,20 +57,20 @@ struct PostResponse : Codable {
 
 }
 
-struct delete : Codable {
+struct Delete : Codable {
     let status : String?
-    let data : String?
+    //let data : String?
     let message : String?
 
     enum CodingKeys: String, CodingKey {
 
         case status = "status"
-        case data = "data"
+        //case data = "data"
         case message = "message"
     }
 
 }
-struct data : Codable {
+struct Data : Codable {
     let id : Int?
     let name : String?
     let salary : String?

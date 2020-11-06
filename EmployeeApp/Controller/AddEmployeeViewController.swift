@@ -25,7 +25,7 @@ class AddEmployeeViewController: UIViewController {
     var Age: String?
     var Salary: String?
     var ID: Int?
-    var arrResponse = [data]()
+    var arrResponse = [Data]()
     var postReposne: PostResponse?
     
     override func viewDidLoad() {

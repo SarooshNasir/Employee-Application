@@ -27,7 +27,6 @@ class ViewController: UIViewController,DataPass {
         viewModelEmployee.getAllUserDataAF()
         tblView.addSubview(refhrea)
         tblView.reloadData()
-        // Do any additional setup after loading the view.
     }
     func dataPassing(response: PostResponse) {
         Name = response.data?.name
@@ -68,28 +67,44 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate{
         UpdateVC.strAge = viewModelEmployee.arrEmployees[indexPath.row].employee_age
         UpdateVC.strID = viewModelEmployee.arrEmployees[indexPath.row].id
         UpdateVC.strSalary = viewModelEmployee.arrEmployees[indexPath.row].employee_salary
+        tableView.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(UpdateVC, animated: true)
     }
-    
     // MARK: Delete Functionality
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let contextItem = UIContextualAction(style: .destructive, title: "delete") {  (contextualAction, view, boolValue) in
             let urlDelete = "http://dummy.restapiexample.com/api/v1/delete/\(self.viewModelEmployee.arrEmployees[indexPath.row].id ?? "")"
             AF.request(urlDelete, method: .delete).response {response in
                 if let data = response.data{
+                    do{
+                        let str = String(decoding: data, as: UTF8.self)
+                        print(str)
+                        print(" This is \(response)")
+                        let userResponse = try JSONDecoder().decode(Delete.self, from: data)
+                        print(userResponse.status ?? "")
+                        if userResponse.status == "success"{
+                            DispatchQueue.main.async {
+                                self.viewModelEmployee.arrEmployees.remove(at: indexPath.row)
+                                tableView.deleteRows(at: [indexPath], with: .left)
+                            }
+                        }
+                    }catch let err{
+                        let alert = UIAlertController(title: "", message: "Record Not Deleted", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                        print(err.localizedDescription)
+                    }
+                    //                    let str = String(decoding: data, as: UTF8.self)
+                    //                    print(str)
+                    //                    print(" This is \(response)")
                     
-                    let str = String(decoding: data, as: UTF8.self)
-                    print(str)
-                    print(" This is \(response)")
                 }
             }
             print("Delete tapped")
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
-        
         return swipeActions
     }
-    
     //    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     //        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
     //
